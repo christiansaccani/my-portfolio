@@ -9,6 +9,7 @@ import AppAbout from './components/AppAbout.vue';
 import AppSkill from './components/AppSkill.vue';
 import AppMailForm from './components/AppMailForm.vue';
 import AppSocial from './components/AppSocial.vue';
+import AppProjects from './components/AppProjects.vue';
 
 export default {
 
@@ -23,7 +24,8 @@ export default {
     AppAbout,
     AppSkill,
     AppMailForm,
-    AppSocial
+    AppSocial,
+    AppProjects
   },
 }
 
@@ -35,8 +37,10 @@ export default {
     <AppNav></AppNav>
     <AppAbout></AppAbout>
     <AppSkill></AppSkill>
+    <AppProjects></AppProjects>
     <AppMailForm></AppMailForm>
     <AppSocial></AppSocial>
+
   </body>
   
 </template>

@@ -162,7 +162,7 @@ section {
                     }
                     
                     p:hover .text {
-                        animation: slide .9s linear forwards;
+                        animation: slide .8s linear forwards;
                     }
 
                     .text {

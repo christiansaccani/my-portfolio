@@ -79,7 +79,7 @@ section {
         }
 
         a:hover {
-            animation: hbeat 3.6s ease-out infinite;
+            animation: hbeat 3.2s ease-out infinite;
         }
     }
 }
