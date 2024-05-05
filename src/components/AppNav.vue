@@ -18,6 +18,15 @@ export default {
         behavior: 'smooth' // Effetto di scorrimento fluido
       });
     },
+    scrollToContacts(event) {
+      event.preventDefault(); // Previeni il comportamento predefinito del click
+      const totalHeight = document.body.scrollHeight;
+
+      window.scrollTo({
+        top: totalHeight,
+        behavior: 'smooth' // Effetto di scorrimento fluido
+      });
+    },
     }
 
 }
@@ -31,13 +40,13 @@ export default {
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="my_navbar-collapse">
       <div class="navbar-nav" id="my_navbar-nav">
-        <a class="nav-link px-5" href="#" @click="scrollToAbout">
+        <a class="nav-link px-5" @click="scrollToAbout">
             About
         </a>
-        <a class="nav-link px-5" href="#">
+        <a class="nav-link px-5" >
             Projects
         </a>
-        <a class="nav-link px-5" href="#">
+        <a class="nav-link px-5" @click="scrollToContacts">
             Contacts
         </a>
       </div>
@@ -79,11 +88,14 @@ export default {
                 a {
                     color: $textColor;
 
-                    border: 2px solid $primaryColor;
+                    border: 2px solid $highlightColor;
                     border-radius: 24px;
 
                     font-size: 1.2rem;
                     font-weight: 500;
+
+                    transition: linear 0.4s all;
+                    cursor: pointer;
                 }
             }
         }
@@ -93,6 +105,7 @@ export default {
 a:hover {
     background-color: $primaryColor;
     color: $backgroundColor !important;
+    border-color: $primaryColor !important;
 }
 
 </style>

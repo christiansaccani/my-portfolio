@@ -19,13 +19,13 @@ export default {
 <template>
 <section>
 
-<h3>find me here!</h3>
+<h3>...and find me here!</h3>
 
 <div id="socials-container">
     <div v-for="(currentItem, index) in store.arraySocials" :key="index">
-        <p >
+        <a :href="currentItem.link">
             <span v-html="currentItem.icon"></span>
-        </p>
+        </a>
     </div>
 </div>
 
@@ -62,7 +62,7 @@ section {
 
         margin: 2rem 0;
 
-        p {
+        a {
             width: 3.5rem;
             height: 3.5rem;
             border-radius: 50%;
@@ -78,8 +78,8 @@ section {
             cursor: pointer;
         }
 
-        p:hover {
-            animation: hbeat 3.6s linear infinite;
+        a:hover {
+            animation: hbeat 3.6s ease-out infinite;
         }
     }
 }

@@ -20,10 +20,10 @@ export const store = reactive({
     ],
 
     arraySocials: [
-        { name: "GitHub", icon: '<i class="fa-brands fa-github"></i>'},
-        { name: "Instagram", icon: '<i class="fa-brands fa-instagram"></i>'},
-        { name: "Linkedin", icon: '<i class="fa-brands fa-linkedin-in"></i>'},
-        { name: "Mail", icon: '<i class="fa-regular fa-envelope"></i>'},
+        { name: "GitHub", icon: '<i class="fa-brands fa-github"></i>', link:'https://github.com/christiansaccani'},
+        { name: "Instagram", icon: '<i class="fa-brands fa-instagram"></i>', link:'https://www.instagram.com/'},
+        { name: "Linkedin", icon: '<i class="fa-brands fa-linkedin-in"></i>', link:'https://www.linkedin.com/in/christian-saccani-a9445a208/'},
+        { name: "Mail", icon: '<i class="fa-regular fa-envelope"></i>', link:'mailto:christian.saccani99@gmail.com'},
     ]
 
 });

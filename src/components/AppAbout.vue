@@ -21,7 +21,7 @@ export default {
 
     <section>
         <h1 class="mt-2 mb-4">Full Stack Developer</h1>
-        <p class="mb-4">You give me an image. I give you the code.</p>
+        <p class="mb-4">You give me an idea. I give you the code.</p>
         <img src=D:\PPCoding\my-portfolio\src\assets\avataaars.png alt="">
     </section>
     <section id="section-2">
@@ -73,7 +73,7 @@ export default {
             height: 220px;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
-            border: 3px solid $primaryColor;
+            border: 3px solid $highlightColor;
         }
     }
 
