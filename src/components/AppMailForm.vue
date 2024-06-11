@@ -93,15 +93,15 @@ section {
 
 .custom-input:focus,
 .custom-input:active {
-    border-color: #84909B;
-    box-shadow: 0 0 0 0.25rem #84909B;
+    border-color: $primaryColor;
+    box-shadow: 0 0 0 0.1rem $primaryColor;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px #eafaff inset !important;
 }
 
 input:-webkit-autofill{

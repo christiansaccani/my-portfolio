@@ -27,8 +27,10 @@ export default {
             <div class="card-body pb-0">
                 <h4 class="card-title font-weight-bold">Boolivery</h4>
                 <p class="card-text">Progetto finale 'Boolean', webapp di food delivery usando <strong>Vite</strong> e <strong>Laravel</strong> per un'esperienza utente rapida, sicura e moderna.</p>
-                <a href="#" class="btn me-2"><i class="fa-solid fa-play me-2"></i>Video</a>
-                <a href="#" class="btn"><i class="fa-brands fa-github me-2"></i>Codice</a>
+                <div class="buttons">
+                    <a href="#" target="_blank" class="btn rounded-4"><i class="fa-solid fa-play me-2"></i>Video</a>
+                    <a href="https://github.com/stars/christiansaccani/lists/freaky-boolivery" target="_blank" class="btn rounded-4"><i class="fa-brands fa-github me-2"></i>Codice</a>
+                </div>
             </div>
         </div>
 
@@ -86,15 +88,27 @@ section {
                 }
             }
 
-            .btn {
-                color: $primaryColor;
-                background-color: $backgroundColor;
-                border: 1px solid $primaryColor;
-                transition: all .4s linear;
+            .buttons {
+                display: flex; /* Usa Flexbox per centrare il contenuto */
+                flex-flow: row nowrap;
+                gap: 1rem;
 
-                &:hover {
-                    background-color: $primaryColor;
-                    color: $backgroundColor;
+                .btn {
+                    color: $primaryColor;
+                    background-color: $backgroundColor;
+                    border: 1px solid $primaryColor;
+                    transition: all .4s linear;
+
+                    font-weight: 500;
+
+                    i {
+                        font-size: 1.2rem;
+                    }
+
+                    &:hover {
+                        background-color: $primaryColor;
+                        color: $backgroundColor;
+                    }
                 }
             }
         }
