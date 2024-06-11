@@ -19,7 +19,7 @@ export default {
 <template>
 <section class="my-2">
 
-connected...
+    
 
 </section>
 </template>

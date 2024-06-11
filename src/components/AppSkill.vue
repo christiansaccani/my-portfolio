@@ -9,6 +9,8 @@ export default {
             store,
             isHoveredLang: Array(store.arrayLanguages.length).fill(false),
             isHoveredLibr: Array(store.arrayLibraries.length).fill(false),
+            isHoveredSocials: Array(store.arraySocials.length).fill(false),
+            isImageHovered: false,
         };
     },
 
@@ -24,6 +26,18 @@ export default {
     },
     resetAnimationLibr(index) {
         this.isHoveredLibr[index] = false;
+    },
+    startAnimationSocial(index) {
+        this.isHoveredSocials[index] = true;
+    },
+    resetAnimationSocial(index) {
+        this.isHoveredSocials[index] = false;
+    },
+    startAnimationImage() {
+      this.isImageHovered = true;
+    },
+    resetAnimationImage() {
+      this.isImageHovered = false;
     }
   }
 }
@@ -40,7 +54,8 @@ export default {
                 <i class="fa-solid fa-code"></i>
             </p>
             <h3 class="pb-2">
-                languages I speak
+                linguaggi che scrivo
+                <!-- languages I speak -->
             </h3>
             <div class="thoughtdiv">
                 <div v-for="(currentItem, index) in store.arrayLanguages" :key="index">
@@ -53,12 +68,14 @@ export default {
                 </div>
             </div>
         </div>
+
         <div class="py-2 container-inside">
             <p>
                 <i class="fa-solid fa-book-open"></i>
             </p>
             <h3 class="pb-2">
-                libraries I use
+                strumenti che uso
+                <!-- tools I use -->
             </h3>
             <div class="thoughtdiv">
                 <div v-for="(currentItem, index) in store.arrayLibraries" :key="index">
@@ -68,6 +85,38 @@ export default {
                         <span v-html="currentItem.icon"></span>
                     </p>
                     <span v-if="isHoveredLibr[index]" class="text">{{ currentItem.name }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-2 container-inside">
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+            </p>
+            <h3 class="pb-2">
+                dove puoi trovarmi
+                <!-- find me here -->
+            </h3>
+            <div class="thoughtdiv">
+                <div v-for="(currentItem, index) in store.arraySocials" :key="index">
+                    <a :href="currentItem.link" target="_blank">
+                        <p
+                            @mouseenter="startAnimationSocial(index)"
+                            @mouseleave="resetAnimationSocial(index)">
+                            <span v-html="currentItem.icon"></span>
+                        </p>
+                        <span v-if="isHoveredSocials[index]" class="text">{{ currentItem.name }}</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.codewars.com/users/christiansaccani" target="_blank">
+                        <p
+                            @mouseenter="startAnimationImage"
+                            @mouseleave="resetAnimationImage">
+                            <img src="D:\PPCoding\my-portfolio\src\assets\codewars-svgrepo-com.svg" alt="Codewars Logo" />
+                        </p>
+                        <span v-if="isImageHovered" class="text">Codewars</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -86,13 +135,12 @@ export default {
 
 section {
     position: relative;
-    height: 490px;
+    height: 450px;
 
     display: flex;
     flex-flow: column;
     align-items: center;
     width: 100%;
-    padding-bottom: 200px;
 
     background-color: $backgroundColor;
     color: $textColor;
@@ -100,7 +148,8 @@ section {
     #container {
         display: flex;
         flex-flow: nowrap;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 4rem;
         margin-bottom: 1rem;
 
         max-width: 1440px;
@@ -110,6 +159,8 @@ section {
         left: 50%;
         top: 0;
         transform: translate(-50%, -25%);
+
+        padding: 0 1rem;
 
         .container-inside {
 
@@ -143,7 +194,6 @@ section {
                         height: 3.5rem;
                         border-radius: 50%;
 
-                        transition: linear 0.4s all;
                         border: 2px solid $primaryColor;
                         color: $textColor;
 
@@ -151,43 +201,51 @@ section {
                         place-items: center;
                         font-size: 1.8rem;
 
-                        transition: all .5s linear;
+                        transition: all .4s linear;
                         margin-bottom: 0;
+
+                        img {
+                            width: 28px;
+                            transition: all .4s linear;
+                        }
                     }
 
                     p:hover {
                         background-color: $primaryColor;
                         color: $backgroundColor;
-                        transform: rotate(360deg);
+                        opacity: .2;
                     }
-                    
-                    p:hover .text {
-                        animation: slide .8s linear forwards;
+
+                    p:hover img{
+                        filter: invert(1);
                     }
 
                     .text {
                         user-select: none;
                         pointer-events: none;
                         color: $textColor;
+                        font-size: 1.5rem;
 
                         position: absolute;
                         right: 50%;
                         top: 50%;
-                        transform: translate(0%, -50%);
+                        transform: translate(50%, -50%);
 
-                        text-align: end;
-
-                        animation: slide .5s linear forwards;
-                        opacity: 1;
-
+                        animation: txtOpacity .4s linear forwards;
                     }
                 }
             }
 
             i {
                 font-size: 28px;
+                width: 60px;
+                height: 60px;
                 margin-top: 1rem;
-                padding: 16px 12.5px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
                 background-color: $highlightColor;
                 color: $textColor;
                 border-radius: 50%;
@@ -196,16 +254,11 @@ section {
     }
 }
 
-@keyframes slide {
+@keyframes txtOpacity {
         0% {
-            transform: translate(0em, -50%);
-            opacity: 0;
-        }
-        75% {
             opacity: 0;
         }
         100% {
-            transform: translate(7.5em, -50%);
             opacity: 1;
         }
     }

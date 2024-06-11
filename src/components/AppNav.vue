@@ -11,10 +11,10 @@ export default {
         };
     },
     methods: {
-    scrollToAbout(event) {
+    scrollToSkills(event) {
       event.preventDefault(); // Previeni il comportamento predefinito del click
       window.scrollTo({
-        top: 558,
+        top: 640,
         behavior: 'smooth' // Effetto di scorrimento fluido
       });
     },
@@ -36,18 +36,18 @@ export default {
 
 <template>
 
-<nav class="navbar navbar-expand-lg my_nav py-4">
+<nav class="navbar navbar-expand my_nav py-4">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="my_navbar-collapse">
+    <div id="my_navbar-collapse">
       <div class="navbar-nav" id="my_navbar-nav">
-        <a class="nav-link px-5" @click="scrollToAbout">
-            About
+        <a class="nav-link px-4" @click="scrollToSkills">
+            Skills
         </a>
-        <a class="nav-link px-5" >
-            Projects
+        <a class="nav-link px-4" >
+            Progetti
         </a>
-        <a class="nav-link px-5" @click="scrollToContacts">
-            Contacts
+        <a class="nav-link px-4" @click="scrollToContacts">
+            Contatti
         </a>
       </div>
     </div>
@@ -81,9 +81,12 @@ export default {
         align-items: center;
 
             #my_navbar-nav {
+                width: 38rem;
                 display: flex;
-                justify-content: center;
-                gap: 4rem;
+                justify-content: space-evenly;
+
+                border-left: 10px double $highlightColor;
+                border-right: 10px double $highlightColor;
 
                 a {
                     color: $textColor;

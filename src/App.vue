@@ -8,7 +8,6 @@ import AppNav from './components/AppNav.vue';
 import AppAbout from './components/AppAbout.vue';
 import AppSkill from './components/AppSkill.vue';
 import AppMailForm from './components/AppMailForm.vue';
-import AppSocial from './components/AppSocial.vue';
 import AppProjects from './components/AppProjects.vue';
 
 export default {
@@ -24,7 +23,6 @@ export default {
     AppAbout,
     AppSkill,
     AppMailForm,
-    AppSocial,
     AppProjects
   },
 }
@@ -39,7 +37,6 @@ export default {
     <AppSkill></AppSkill>
     <AppProjects></AppProjects>
     <AppMailForm></AppMailForm>
-    <AppSocial></AppSocial>
 
   </body>
   
@@ -56,3 +53,13 @@ body {
 
 </style>
 
+<!-- 
+
+Cose da fare:
+ 
+- Inserisci la sezione dedicata ai progetti
+- Inserisci il toggle per la lingua
+- Inserisci le traduzione
+- Decidi i colori da usare
+
+-->

@@ -18,27 +18,27 @@ export default {
 
 <template>
 
-<section class="w-100 py-5">
-    <h3>write to me here...</h3>
+    <section class="w-100 py-4">
+        <h3>Non vedo l'ora di collaborare con voi!</h3>
 
-    <form class="row g-3">
-        <div class="col-md-6">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="name" class="form-control custom-input" id="name">
-        </div>
-        <div class="col-md-6">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="mail" class="form-control custom-input" id="email">
-        </div>
-        <div class="mb-3">
-            <label for="message" class="form-label">Your Message</label>
-            <textarea class="form-control custom-input" id="message" rows="5"></textarea>
-        </div>
-        <div class="col-12 text-center">
-            <button type="submit" class="btn btn-outline-light" id="custom-btn">Send It</button>
-        </div>
-    </form>
-</section>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Il tuo nome</label>
+                <input type="name" class="form-control custom-input" id="name">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Il tuo indirizzo email *</label>
+                <input type="mail" class="form-control custom-input" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Il tuo messaggio *</label>
+                <textarea class="form-control custom-input" id="message" rows="5" required></textarea>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-outline-light" id="custom-btn">Invia</button>
+            </div>
+        </form>
+    </section>
 
 </template>
 

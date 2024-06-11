@@ -20,20 +20,19 @@ export default {
 
 
     <section>
-        <h1 class="mt-2 mb-4">Full Stack Developer</h1>
+        <h1 class="mt-2 mb-4">Junior Full Stack Developer</h1>
         <p class="mb-4">You give me an idea. I give you the code.</p>
         <img src=D:\PPCoding\my-portfolio\src\assets\avataaars.png alt="">
     </section>
     <section id="section-2">
-        <h2 class="my-4">
-            Hello, I'm Christian, Welcome!
+        <h2 class="my-2">
+            Benvenuti, sono Christian!
         </h2>
         
-            <p class="my-4">
-                I'm about to complete my studies with Boolean. In my portfolio, I showcase my projects, 
-                focused on creating engaging user experiences and intuitive interfaces. 
-                My approach is simple and efficient, always aiming for excellent results. 
-                I hope my work demonstrates my commitment and ability to transform ideas into elegant and functional solutions.
+            <p class="my-2">
+                Sono un Junior Full Stack Web Developer, formato presso Boolean con ottimi risultati. 
+                Ho una solida comprensione delle tecnologie web moderne e sono entusiasta di applicare 
+                le mie competenze e il mio approccio organizzato contribuendo a progetti stimolanti.
             </p>
         
     </section>
@@ -56,24 +55,34 @@ export default {
     align-items: center;
     width: 100%;
 
-    padding-bottom: 5.5rem;
+    position: relative;
+    padding-bottom: 7rem;
 
     background-color: $backgroundColor;
     color: $textColor;
 
         h1 {
             font-weight: bold;
+            color: $textColor;
         }
 
         p {
             font-size: 1.4rem;
+            color: $textColor;
         }
 
         img {
             height: 220px;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
-            border: 3px solid $highlightColor;
+            border: 3px solid $primaryColor;
+            background-color: $backgroundColor;
+
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 50%);
+            z-index: 2;
         }
     }
 
@@ -86,12 +95,18 @@ export default {
         color: $backgroundColor;
 
         width: 100%;
-        padding: 5.5rem 0 11rem;
+        padding: 7rem 0 11rem;
+
+        h2 {
+            color: $backgroundColor;
+        }
 
         p {
             text-align: center;
             font-size: 1.4rem;
             max-width: 960px;
+
+            color: $backgroundColor;
         }
     }
 
