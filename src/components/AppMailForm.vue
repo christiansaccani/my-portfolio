@@ -53,7 +53,7 @@ section {
     display: flex;
     flex-flow: column;
     align-items: center;
-    background-color: $primaryColor;
+    background-color: $backgroundColor;
 
     h3 {
         margin-bottom: 2rem;
