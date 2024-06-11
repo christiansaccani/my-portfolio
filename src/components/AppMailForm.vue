@@ -66,25 +66,29 @@ section {
         border: 3px solid $primaryColor;
 
         label {
+            color: $textColor;
             font-weight: 500;
         }
 
         input, textarea {
-            border: 2px solid $primaryColor;
+            border: 2px solid $lightColor;
+            background-color: $backgroundColor;
         }
 
         #custom-btn {
             padding: 0.2rem 1.2rem;
             border-radius: 24px;
             transition: linear 0.4s all;
-            border: 2px solid $primaryColor;
-            color: $primaryColor;
+            border: 3px solid $lightColor;
+            color: $lightColor;
             font-weight: 500;
+            font-size: large;
         }
         
         #custom-btn:hover {
-            background-color: $primaryColor;
-            color: $backgroundColor;
+            background-color: $backgroundColor;
+            color: $lightColor;
+            border-color: $highlightColor;
         }
     }
 }
@@ -93,15 +97,16 @@ section {
 
 .custom-input:focus,
 .custom-input:active {
-    border-color: $primaryColor;
-    box-shadow: 0 0 0 0.1rem $primaryColor;
+    border-color: $lightColor;
+    background-color: $backgroundColor;
+    box-shadow: 0 0 0 0.2rem $primaryColor;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px #eafaff inset !important;
+    -webkit-box-shadow: 0 0 0 30px $backgroundColor inset !important;
 }
 
 input:-webkit-autofill{

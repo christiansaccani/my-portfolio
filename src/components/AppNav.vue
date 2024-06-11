@@ -106,9 +106,8 @@ export default {
 }
 
 a:hover {
-    background-color: $primaryColor;
+    background-color: $highlightColor;
     color: $backgroundColor !important;
-    border-color: $primaryColor !important;
 }
 
 </style>

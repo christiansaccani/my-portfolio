@@ -28,8 +28,8 @@ export default {
                 <h4 class="card-title font-weight-bold">Boolivery</h4>
                 <p class="card-text">Progetto finale 'Boolean', webapp di food delivery usando <strong>Vite</strong> e <strong>Laravel</strong> per un'esperienza utente rapida, sicura e moderna.</p>
                 <div class="buttons">
-                    <a href="#" target="_blank" class="btn rounded-4"><i class="fa-solid fa-play me-2"></i>Video</a>
-                    <a href="https://github.com/stars/christiansaccani/lists/freaky-boolivery" target="_blank" class="btn rounded-4"><i class="fa-brands fa-github me-2"></i>Codice</a>
+                    <a href="#" target="_blank" class="btn rounded-5"><i class="fa-solid fa-play me-2"></i>Video</a>
+                    <a href="https://github.com/stars/christiansaccani/lists/freaky-boolivery" target="_blank" class="btn rounded-5"><i class="fa-brands fa-github me-2"></i>Codice</a>
                 </div>
             </div>
         </div>
@@ -70,15 +70,17 @@ section {
     color: $textColor;
 
     h2 {
-        color: $backgroundColor;
+        color: $textColor;
     }
 
     .card_container {
         max-width: 1440px;
 
         .card {
-            border: 3px solid $primaryColor;
-            outline: 4px solid $backgroundColor;
+            background-color: $primaryColor;
+            color: $lightColor;
+            border: 5px solid $backgroundColor;
+            outline: 3px solid $highlightColor;
 
             img {
                 transition: all .4s linear;
@@ -88,26 +90,30 @@ section {
                 }
             }
 
+            h4 {
+                color: $textColor;
+            }
+
             .buttons {
                 display: flex; /* Usa Flexbox per centrare il contenuto */
                 flex-flow: row nowrap;
                 gap: 1rem;
 
                 .btn {
-                    color: $primaryColor;
-                    background-color: $backgroundColor;
-                    border: 1px solid $primaryColor;
+                    color: $textColor;
+                    background-color: $primaryColor;
+                    border: 2px solid $highlightColor;
                     transition: all .4s linear;
 
                     font-weight: 500;
+                    padding: .45rem 1.1rem;
 
                     i {
                         font-size: 1.2rem;
                     }
 
                     &:hover {
-                        background-color: $primaryColor;
-                        color: $backgroundColor;
+                        background-color: $highlightColor;
                     }
                 }
             }

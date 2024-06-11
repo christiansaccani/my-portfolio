@@ -194,8 +194,8 @@ section {
                         height: 3.5rem;
                         border-radius: 50%;
 
-                        border: 2px solid $primaryColor;
-                        color: $textColor;
+                        border: 2px solid $lightColor;
+                        color: $lightColor;
 
                         display: grid;
                         place-items: center;
@@ -207,17 +207,14 @@ section {
                         img {
                             width: 28px;
                             transition: all .4s linear;
+                            filter: invert(44%) sepia(7%) saturate(460%) hue-rotate(182deg) brightness(93%) contrast(89%);
                         }
                     }
 
                     p:hover {
                         background-color: $primaryColor;
-                        color: $backgroundColor;
-                        opacity: .2;
-                    }
-
-                    p:hover img{
-                        filter: invert(1);
+                        border-color: $textColor;
+                        opacity: .1;
                     }
 
                     .text {

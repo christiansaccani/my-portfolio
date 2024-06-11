@@ -98,7 +98,7 @@ export default {
         padding: 7rem 0 11rem;
 
         h2 {
-            color: $backgroundColor;
+            color: $textColor;
         }
 
         p {
@@ -106,7 +106,7 @@ export default {
             font-size: 1.4rem;
             max-width: 960px;
 
-            color: $backgroundColor;
+            color: $textColor;
         }
     }
 
