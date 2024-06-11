@@ -21,7 +21,7 @@ export default {
     <section class="w-100 py-4">
         <h3>Non vedo l'ora di collaborare con voi!</h3>
 
-        <form class="row g-3">
+        <form class="row g-3 rounded-4">
             <div class="col-md-6">
                 <label for="name" class="form-label">Il tuo nome</label>
                 <input type="name" class="form-control custom-input" id="name">
@@ -57,26 +57,34 @@ section {
 
     h3 {
         margin-bottom: 2rem;
-        color: $backgroundColor
+        color: $textColor;
     }
 
     form {
-        color: $backgroundColor;
+        padding: 2rem 4rem;
+        color: $textColor;
+        border: 3px solid $primaryColor;
 
-        input {
-            border: none;
+        label {
+            font-weight: 500;
+        }
+
+        input, textarea {
+            border: 2px solid $primaryColor;
         }
 
         #custom-btn {
             padding: 0.2rem 1.2rem;
             border-radius: 24px;
             transition: linear 0.4s all;
-            border: 2px solid $backgroundColor;
+            border: 2px solid $primaryColor;
+            color: $primaryColor;
             font-weight: 500;
         }
         
         #custom-btn:hover {
-            color: $primaryColor;
+            background-color: $primaryColor;
+            color: $backgroundColor;
         }
     }
 }
@@ -101,3 +109,5 @@ input:-webkit-autofill{
 }
 
 </style>
+
+<!-- Manca solo l'effettivo collegamento alla mail -->
