@@ -47,8 +47,10 @@ export default {
 body {
   width: 100%;
   display: flex;
-    flex-direction: column;
-    align-items: center !important;
+  flex-direction: column;
+  align-items: center !important;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 </style>

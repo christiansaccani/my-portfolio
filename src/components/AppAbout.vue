@@ -25,11 +25,11 @@ export default {
         <img src=D:\PPCoding\my-portfolio\src\assets\avataaars.png alt="">
     </section>
     <section id="section-2">
-        <h2 class="my-2">
+        <h2 class="mt-4 mb-2">
             Benvenuti, sono Christian!
         </h2>
         
-            <p class="my-2">
+            <p class="mt-4">
                 Sono un Junior Full Stack Web Developer, formato presso Boolean con ottimi risultati. 
                 Ho una solida comprensione delle tecnologie web moderne e sono entusiasta di applicare 
                 le mie competenze e il mio approccio organizzato contribuendo a progetti stimolanti.
@@ -56,7 +56,8 @@ export default {
     width: 100%;
 
     position: relative;
-    padding-bottom: 7rem;
+    padding-bottom: 8rem;
+    padding-top: 1.5rem;
 
     background-color: $backgroundColor;
     color: $textColor;
@@ -95,7 +96,7 @@ export default {
         color: $backgroundColor;
 
         width: 100%;
-        padding: 7rem 0 11rem;
+        padding: 8rem 0 13rem;
 
         h2 {
             color: $textColor;
@@ -104,6 +105,7 @@ export default {
         p {
             text-align: center;
             font-size: 1.4rem;
+            line-height: 2.2rem;
             max-width: 960px;
 
             color: $textColor;

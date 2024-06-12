@@ -14,7 +14,7 @@ export default {
     scrollToSkills(event) {
       event.preventDefault(); // Previeni il comportamento predefinito del click
       window.scrollTo({
-        top: 640,
+        top: 785,
         behavior: 'smooth' // Effetto di scorrimento fluido
       });
     },
@@ -36,7 +36,7 @@ export default {
 
 <template>
 
-<nav class="navbar navbar-expand my_nav py-4">
+<nav class="navbar navbar-expand my_nav pt-5 pb-4">
   <div class="container-fluid">
     <div id="my_navbar-collapse">
       <div class="navbar-nav" id="my_navbar-nav">
@@ -81,7 +81,7 @@ export default {
         align-items: center;
 
             #my_navbar-nav {
-                width: 38rem;
+                width: 42rem;
                 display: flex;
                 justify-content: space-evenly;
 
@@ -107,7 +107,6 @@ export default {
 
 a:hover {
     background-color: $highlightColor;
-    color: $backgroundColor !important;
 }
 
 </style>

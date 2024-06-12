@@ -53,10 +53,13 @@ export default {
             <p>
                 <i class="fa-solid fa-code"></i>
             </p>
-            <h3 class="pb-2">
-                linguaggi che scrivo
+            <h3 class="pb-1">
+                Linguaggi
                 <!-- languages I speak -->
             </h3>
+            <p class="sub-title">
+                che ho appreso fino ad oggi, senza perdermi le novità
+            </p>
             <div class="thoughtdiv">
                 <div v-for="(currentItem, index) in store.arrayLanguages" :key="index">
                     <p
@@ -74,9 +77,12 @@ export default {
                 <i class="fa-solid fa-book-open"></i>
             </p>
             <h3 class="pb-2">
-                strumenti che uso
+                Strumenti
                 <!-- tools I use -->
             </h3>
+            <p class="sub-title">
+                che utilizzo per gestire e organizzare al meglio il mio lavoro
+            </p>
             <div class="thoughtdiv">
                 <div v-for="(currentItem, index) in store.arrayLibraries" :key="index">
                     <p 
@@ -94,9 +100,12 @@ export default {
                 <i class="fa-solid fa-location-dot"></i>
             </p>
             <h3 class="pb-2">
-                dove puoi trovarmi
+                Community
                 <!-- find me here -->
             </h3>
+            <p class="sub-title">
+                dove mi puoi trovare, come sviluppatore e non
+            </p>
             <div class="thoughtdiv">
                 <div v-for="(currentItem, index) in store.arraySocials" :key="index">
                     <a :href="currentItem.link" target="_blank">
@@ -135,7 +144,7 @@ export default {
 
 section {
     position: relative;
-    height: 450px;
+    height: 490px;
 
     display: flex;
     flex-flow: column;
@@ -168,6 +177,13 @@ section {
             background-color: $backgroundColor;
             border: 2px solid $highlightColor;
             outline: 8px solid $backgroundColor;
+
+            .sub-title {
+                color: $lightColor;
+                text-align: center;
+                font-size: 18px;
+                max-width: 80%;
+            }
 
             .thoughtdiv {
 
@@ -249,6 +265,10 @@ section {
             }
         }
     }
+}
+
+h3 {
+    font-weight: 600;
 }
 
 @keyframes txtOpacity {
