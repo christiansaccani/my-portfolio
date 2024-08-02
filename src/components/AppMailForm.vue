@@ -18,7 +18,7 @@ export default {
 
 <template>
 
-    <section class="w-100 py-4">
+    <section class="w-100 py-5">
         <h3>Non vedo l'ora di collaborare con voi!</h3>
 
         <form class="row g-3 rounded-4">
@@ -56,7 +56,7 @@ section {
     background-color: $backgroundColor;
 
     h3 {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         color: $textColor;
     }
 
@@ -100,6 +100,7 @@ section {
     border-color: $lightColor;
     background-color: $backgroundColor;
     box-shadow: 0 0 0 0.2rem $primaryColor;
+    color: $textColor;
 }
 
 input:-webkit-autofill,

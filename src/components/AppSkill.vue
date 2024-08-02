@@ -11,6 +11,7 @@ export default {
             isHoveredLibr: Array(store.arrayLibraries.length).fill(false),
             isHoveredSocials: Array(store.arraySocials.length).fill(false),
             isImageHovered: false,
+            isImage2Hovered: false,
         };
     },
 
@@ -38,6 +39,12 @@ export default {
     },
     resetAnimationImage() {
       this.isImageHovered = false;
+    },
+    startAnimationImage2() {
+      this.isImage2Hovered = true;
+    },
+    resetAnimationImage2() {
+      this.isImage2Hovered = false;
     }
   }
 }
@@ -51,7 +58,7 @@ export default {
     <div id="container">
         <div class="py-2 container-inside">
             <p>
-                <i class="fa-solid fa-code"></i>
+                <i class="fa-solid fa-code" style="color: #e8e9eb;"></i>
             </p>
             <h3 class="pb-1">
                 Linguaggi
@@ -65,16 +72,32 @@ export default {
                     <p
                         @mouseenter="startAnimationLang(index)"
                         @mouseleave="resetAnimationLang(index)">
-                        <span v-html="currentItem.icon"></span>
+                        <span class="pt-1" v-html="currentItem.icon"></span>
                     </p>
                     <span v-if="isHoveredLang[index]" class="text">{{ currentItem.name }}</span>
+                </div>
+                <div>
+                    <p
+                        @mouseenter="startAnimationImage"
+                        @mouseleave="resetAnimationImage">
+                        <img src="D:\PPCoding\my-portfolio\src\assets\cobol_icon_132525.svg" alt="Codewars Logo" />
+                    </p>
+                    <span v-if="isImageHovered" class="text">Cobol</span>
+                </div>
+                <div>
+                    <p
+                        @mouseenter="startAnimationImage2"
+                        @mouseleave="resetAnimationImage2">
+                        <img src="D:\PPCoding\my-portfolio\src\assets\IBM_RPG_logo.png" alt="Codewars Logo" style="width: 40px;"/>
+                    </p>
+                    <span v-if="isImage2Hovered" class="text">RPG</span>
                 </div>
             </div>
         </div>
 
         <div class="py-2 container-inside">
             <p>
-                <i class="fa-solid fa-book-open"></i>
+                <i class="fa-solid fa-book-open" style="color: #e8e9eb;"></i>
             </p>
             <h3 class="pb-2">
                 Strumenti
@@ -88,7 +111,7 @@ export default {
                     <p 
                     @mouseenter="startAnimationLibr(index)"
                     @mouseleave="resetAnimationLibr(index)">
-                        <span v-html="currentItem.icon"></span>
+                        <span class="pt-1" v-html="currentItem.icon"></span>
                     </p>
                     <span v-if="isHoveredLibr[index]" class="text">{{ currentItem.name }}</span>
                 </div>
@@ -97,7 +120,7 @@ export default {
 
         <div class="py-2 container-inside">
             <p>
-                <i class="fa-solid fa-location-dot"></i>
+                <i class="fa-solid fa-location-dot" style="color: #e8e9eb;"></i>
             </p>
             <h3 class="pb-2">
                 Community
@@ -112,7 +135,7 @@ export default {
                         <p
                             @mouseenter="startAnimationSocial(index)"
                             @mouseleave="resetAnimationSocial(index)">
-                            <span v-html="currentItem.icon"></span>
+                            <span class="pt-1" v-html="currentItem.icon"></span>
                         </p>
                         <span v-if="isHoveredSocials[index]" class="text">{{ currentItem.name }}</span>
                     </a>

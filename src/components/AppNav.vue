@@ -90,12 +90,13 @@ export default {
 
                 a {
                     color: $textColor;
+                    // letter-spacing: 1px;
 
-                    border: 2px solid $highlightColor;
-                    border-radius: 24px;
+                    border: 3px solid $highlightColor;
+                    border-radius: 36px;
 
-                    font-size: 1.2rem;
-                    font-weight: 500;
+                    font-size: 1.4rem;
+                    font-weight: 600;
 
                     transition: linear 0.4s all;
                     cursor: pointer;
@@ -107,6 +108,7 @@ export default {
 
 a:hover {
     background-color: $highlightColor;
+    color: $backgroundColor !important;
 }
 
 </style>
