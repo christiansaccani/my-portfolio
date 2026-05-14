@@ -1,15 +1,17 @@
 import { motion } from 'motion/react';
 import { Section, Card } from '../ui/Layout';
 import { Icon } from '../ui/Icon';
-import { PROJECTS, TECH_SKILLS, SOCIAL_LINKS } from '@/src/constants';
+import { TRANSLATED_PROJECTS, TECH_SKILLS, SOCIAL_LINKS } from '@/src/constants';
 import { Button } from '../ui/Layout';
 import { ArrowUpRight, Github, ExternalLink, Filter } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/src/lib/utils';
+import { useLanguage } from '@/src/lib/LanguageContext';
 
 export function About() {
+  const { t, language } = useLanguage();
   return (
-    <Section id="about" subtitle="Expertise" title="Philosophy & Approach">
+    <Section id="about" subtitle={t('about.subtitle')} title={t('about.title')}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -39,14 +41,15 @@ export function About() {
             className="absolute -bottom-6 -right-6 bg-cyan-500 text-slate-950 p-6 rounded-2xl shadow-2xl hidden md:block"
           >
             <p className="text-3xl font-bold mb-0 leading-none">4+</p>
-            <p className="text-[9px] uppercase tracking-wider font-extrabold whitespace-nowrap">Years Experience</p>
+            <p className="text-[9px] uppercase tracking-wider font-extrabold whitespace-nowrap">
+               {language === 'en' ? 'Years Experience' : 'Anni di Esperienza'}
+            </p>
           </motion.div>
         </motion.div>
 
         <div className="space-y-8">
           <p className="text-2xl md:text-3xl font-light leading-relaxed text-neutral-300">
-            I am a full-stack developer dedicated to solving any kind of business request
-            through elegant and scalable digital solutions.
+            {t('about.description')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-neutral-400">
@@ -56,7 +59,7 @@ export function About() {
                 Problem Solving
               </h4>
               <p className="text-sm leading-relaxed italic">
-                I don't just write code. When I build, I aim for the best functional solution.
+                 {language === 'en' ? "I don't just write code. When I build, I aim for the best functional solution." : "Non scrivo solo codice. Quando costruisco, punto alla migliore soluzione funzionale."}
               </p>
             </div>
             <div className="space-y-4">
@@ -65,8 +68,7 @@ export function About() {
                 Product Mindset
               </h4>
               <p className="text-sm leading-relaxed italic">
-                Every line of code is written with the end product and business ROI in mind, ensuring 
-                technical excellence aligns with commercial success.
+                {language === 'en' ? "Every line of code is written with the end product and business ROI in mind." : "Ogni riga di codice è scritta pensando al prodotto finale e al ROI aziendale."}
               </p>
             </div>
             <div className="space-y-4">
@@ -75,18 +77,16 @@ export function About() {
                 Full-Stack Mastery
               </h4>
               <p className="text-sm leading-relaxed italic">
-                From optimized MySQL schemas to fluid React interfaces, I bridge the gap between 
-                robust backends and intuitive frontends.
+                {language === 'en' ? "From optimized MySQL schemas to fluid React interfaces." : "Dagli schemi MySQL ottimizzati alle interfacce React fluide."}
               </p>
             </div>
             <div className="space-y-4">
               <h4 className="text-white font-medium flex items-center gap-2">
                 <span className="w-4 h-4 rounded-full bg-neutral-800 flex items-center justify-center text-[10px]">4</span>
-                Scalability First
+                {t('about.passion')}
               </h4>
               <p className="text-sm leading-relaxed italic">
-                Architecting for growth is non-negotiable. I use modern paradigms like Next.js, 
-                Python, and Java to ensure your system evolves with your users.
+                {t('about.passionDesc')}
               </p>
             </div>
           </div>
@@ -97,8 +97,9 @@ export function About() {
 }
 
 export function TechStack() {
+  const { t } = useLanguage();
   return (
-    <Section id="tech" subtitle="Toolkit" title="Technologies and Frameworks">
+    <Section id="tech" subtitle={t('projects.techSubtitle')} title={t('projects.techTitle')}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {TECH_SKILLS.map((skill, index) => (
           <Card key={skill.name} className="p-8 group">
@@ -119,33 +120,42 @@ export function TechStack() {
 }
 
 export function Projects() {
+  const { language, t } = useLanguage();
   const [filter, setFilter] = useState('All');
-  const categories = ['All', 'Full-stack', 'Frontend', 'Backend'];
+  
+  const categories = [
+    { id: 'All', label: t('projects.all') },
+    { id: 'Full-stack', label: t('projects.fullstack') },
+    { id: 'Frontend', label: t('projects.frontend') },
+    { id: 'Backend', label: t('projects.backend') }
+  ];
+
+  const projects = TRANSLATED_PROJECTS[language];
 
   const filteredProjects = filter === 'All' 
-    ? PROJECTS 
-    : PROJECTS.filter(p => p.category === filter);
+    ? projects 
+    : projects.filter(p => p.category === filter);
 
   return (
-    <Section id="projects" subtitle="Portfolio" title="Featured Works">
+    <Section id="projects" subtitle={t('projects.subtitle')} title={t('projects.title')}>
       {/* Filtering Bar */}
       <div className="flex flex-wrap items-center gap-4 mb-16 pb-6 border-b border-slate-800">
         <div className="flex items-center gap-2 text-slate-500 mr-4">
           <Filter size={16} />
-          <span className="text-xs font-bold uppercase tracking-widest">Filter:</span>
+          <span className="text-xs font-bold uppercase tracking-widest">{language === 'en' ? 'Filter' : 'Filtra'}:</span>
         </div>
         {categories.map((cat) => (
           <button
-            key={cat}
-            onClick={() => setFilter(cat)}
+            key={cat.id}
+            onClick={() => setFilter(cat.id)}
             className={cn(
               "text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer",
-              filter === cat 
+              filter === cat.id 
                 ? "bg-cyan-500 text-slate-950" 
                 : "text-slate-500 hover:text-white bg-slate-900/50 border border-slate-800"
             )}
           >
-            {cat}
+            {cat.label}
           </button>
         ))}
       </div>
@@ -182,24 +192,24 @@ export function Projects() {
               
               <div className="space-y-4 mb-8 pt-6 border-t border-slate-800">
                 <div>
-                   <p className="text-[9px] font-bold uppercase tracking-widest text-slate-600 mb-1">Problem</p>
+                   <p className="text-[9px] font-bold uppercase tracking-widest text-slate-600 mb-1">{language === 'en' ? 'Problem' : 'Problema'}</p>
                    <p className="text-[10px] text-slate-500 italic line-clamp-2">{project.problemSolved}</p>
                 </div>
                 <div>
-                   <p className="text-[9px] font-bold uppercase tracking-widest text-slate-600 mb-1">Result</p>
+                   <p className="text-[9px] font-bold uppercase tracking-widest text-slate-600 mb-1">{language === 'en' ? 'Result' : 'Risultato'}</p>
                    <p className="text-[10px] text-slate-500 italic line-clamp-2">{project.results}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">               
-                  <Button size="sm" variant="outline" className="flex-1 text-[9px]">
-                    <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1">
-                      Live <ExternalLink size={10} />
-                    </a>
+                <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button size="sm" variant="outline" className="w-full text-[9px]">
+                    {t('projects.viewDemo')} <ExternalLink size={10} />
                   </Button>
+                </a>
                 <a href={project.links.github === '#' ? SOCIAL_LINKS.github : project.links.github} target="_blank" rel="noopener noreferrer" className="flex-1">
                   <Button size="sm" variant="outline" className="w-full text-[9px]">
-                    Repo <Github size={10} />
+                    {t('projects.viewRepo')} <Github size={10} />
                   </Button>
                 </a>
               </div>
@@ -210,7 +220,7 @@ export function Projects() {
       
       {filteredProjects.length === 0 && (
          <div className="py-20 text-center text-neutral-600">
-            <p className="text-xl font-light tracking-widest uppercase">No projects found in this category</p>
+            <p className="text-xl font-light tracking-widest uppercase">{language === 'en' ? 'No projects found in this category' : 'Nessun progetto trovato in questa categoria'}</p>
          </div>
       )}
     </Section>

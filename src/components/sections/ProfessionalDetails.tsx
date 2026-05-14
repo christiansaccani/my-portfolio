@@ -1,14 +1,18 @@
 import { motion } from 'motion/react';
 import { Section, Card } from '../ui/Layout';
 import { Icon } from '../ui/Icon';
-import { SERVICES, EXPERIENCES, GENERAL_SKILLS } from '@/src/constants';
+import { TRANSLATED_SERVICES, TRANSLATED_EXPERIENCES, GENERAL_SKILLS } from '@/src/constants';
 import { cn } from '@/src/lib/utils';
+import { useLanguage } from '@/src/lib/LanguageContext';
 
 export function Services() {
+  const { language, t } = useLanguage();
+  const services = TRANSLATED_SERVICES[language];
+
   return (
-    <Section id="services" subtitle="Offerings" title="How I Create Value">
+    <Section id="services" subtitle={t('services.subtitle')} title={t('services.title')}>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {SERVICES.map((service) => (
+        {services.map((service) => (
           <Card key={service.id} className="p-10 group relative border-neutral-900/50">
             <div className="mb-8 p-4 bg-neutral-900/50 rounded-2xl w-fit group-hover:bg-white group-hover:text-black transition-all duration-500">
               <Icon name={service.icon} size={32} strokeWidth={1.5} />
@@ -30,10 +34,13 @@ export function Services() {
 }
 
 export function Experience() {
+  const { language, t } = useLanguage();
+  const experiences = TRANSLATED_EXPERIENCES[language];
+
   return (
-    <Section id="experience" subtitle="Journey" title="Professional Timeline">
+    <Section id="experience" subtitle={t('experience.subtitle')} title={t('experience.title')}>
       <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:left-0 md:before:left-1/2 before:top-0 before:bottom-0 before:w-[1px] before:bg-neutral-900">
-        {EXPERIENCES.map((exp, index) => (
+        {experiences.map((exp, index) => (
           <motion.div
             key={exp.id}
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}

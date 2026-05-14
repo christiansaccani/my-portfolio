@@ -25,14 +25,14 @@ export function Section({
     <section
       id={id}
       className={cn(
-        'relative py-24 md:py-32 overflow-hidden',
+        'relative py-16 md:py-32 overflow-hidden',
         dark ? 'bg-transparent' : 'bg-slate-900/30',
         className
       )}
     >
       <div className={cn('container mx-auto px-6 relative z-10', containerClassName)}>
         {(title || subtitle) && (
-          <div className="mb-16 max-w-2xl">
+          <div className="mb-10 md:mb-16 max-w-2xl">
             {subtitle && (
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
@@ -127,7 +127,7 @@ export function Card({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={hover ? { y: -5, borderColor: 'rgba(34, 211, 238, 0.5)' } : {}}
+      whileHover={hover ? { y: -5, borderColor: '#22d3ee80' } : {}}
       transition={{ duration: 0.4 }}
       className={cn(
         'bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-400 shadow-xl shadow-cyan-500/5 cursor-pointer',
