@@ -126,8 +126,7 @@ export function Projects() {
   const categories = [
     { id: 'All', label: t('projects.all') },
     { id: 'Full-stack', label: t('projects.fullstack') },
-    { id: 'Frontend', label: t('projects.frontend') },
-    { id: 'Backend', label: t('projects.backend') }
+    { id: 'Frontend', label: t('projects.frontend') }
   ];
 
   const projects = TRANSLATED_PROJECTS[language];

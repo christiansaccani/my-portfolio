@@ -13,6 +13,17 @@ export const TRANSLATED_PROJECTS: Record<'en' | 'it', Project[]> = {
       results: 'Delivered a complete presentation in a few days, aligned with client requirements and optimized for public engagement during the event.',
       links: { demo: 'https://fondamentis.netlify.app/', github: '#', caseStudy: '#' }
     },
+    {
+      id: '2',
+      title: 'SubSense',
+      description: 'A full-stack platform for centralized management of digital subscriptions. Track costs, monitor deadlines, and optimize budget with an AI-powered interface.',
+      image: '/images/subsense.png',
+      tags: ['React 19', 'TypeScript', 'Firebase', 'Gemini AI', 'Tailwind'],
+      category: 'Full-stack',
+      problemSolved: 'Users lose track of active subscriptions, leading to unwanted renewals and lack of visibility on recurring costs.',
+      results: 'Unified dashboard with AI analysis of spending, alternative suggestions, and a secure, polished UX.',
+      links: { demo: 'https://subsensedemo.netlify.app/', github: 'https://github.com/christiansaccani/subsense', caseStudy: '#' }
+    },
   ],
   it: [
     {
@@ -25,6 +36,17 @@ export const TRANSLATED_PROJECTS: Record<'en' | 'it', Project[]> = {
       problemSolved: 'Necessità di una presentazione chiara e coinvolgente per un evento locale con scadenze strette e requisiti di interazione diretta con il pubblico.',
       results: 'Presentazione completa consegnata in pochi giorni, allineata ai requisiti del cliente e ottimizzata per il coinvolgimento del pubblico durante l\'evento.',
       links: { demo: 'https://fondamentis.netlify.app/', github: '#', caseStudy: '#' }
+    },
+    {
+      id: '2',
+      title: 'SubSense',
+      description: 'Una piattaforma full-stack per la gestione centralizzata degli abbonamenti digitali. Monitora costi, scadenze e ottimizza il budget con un\'interfaccia potenziata dall\'IA.',
+      image: '/images/subsense.png',
+      tags: ['React 19', 'TypeScript', 'Firebase', 'Gemini AI', 'Tailwind'],
+      category: 'Full-stack',
+      problemSolved: 'Gli utenti perdono traccia degli abbonamenti attivi, portando a rinnovi indesiderati e mancanza di visibilità sui costi ricorrenti.',
+      results: 'Dashboard unificata con analisi IA delle spese, suggerimenti di alternative e una UX sicura e curata.',
+      links: { demo: 'https://subsensedemo.netlify.app/', github: 'https://github.com/christiansaccani/subsense', caseStudy: '#' }
     },
   ]
 };
