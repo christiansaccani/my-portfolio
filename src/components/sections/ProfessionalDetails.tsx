@@ -39,7 +39,7 @@ export function Experience() {
 
   return (
     <Section id="experience" subtitle={t('experience.subtitle')} title={t('experience.title')}>
-      <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:left-0 md:before:left-1/2 before:top-0 before:bottom-0 before:w-[1px] before:bg-neutral-900">
+      <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:hidden md:before:block before:left-1/2 before:top-0 before:bottom-0 before:w-[1px] before:bg-neutral-900">
         {experiences.map((exp, index) => (
           <motion.div
             key={exp.id}
@@ -52,7 +52,7 @@ export function Experience() {
             )}
           >
             {/* Timeline Dot */}
-            <div className="absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 top-0 w-[11px] h-[11px] rounded-full bg-white border-4 border-black z-10" />
+            <div className="absolute hidden md:block md:left-1/2 md:-translate-x-1/2 top-0 w-[11px] h-[11px] rounded-full bg-white border-4 border-black z-10" />
 
             {/* Date and Company */}
             <div className={index % 2 === 0 ? "md:order-1" : "md:order-2"}>
