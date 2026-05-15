@@ -24,6 +24,17 @@ export const TRANSLATED_PROJECTS: Record<'en' | 'it', Project[]> = {
       results: 'Unified dashboard with AI analysis of spending, alternative suggestions, and a secure, polished UX.',
       links: { demo: 'https://subsensedemo.netlify.app/', github: 'https://github.com/christiansaccani/subsense', caseStudy: '#' }
     },
+    {
+      id: '3',
+      title: 'Kira Assistant',
+      description: 'An intelligent and minimal virtual assistant designed as an interactive interface for the portfolio. It guides users through tech skills, projects, and contacts in a natural and professional way.',
+      image: '/images/kira.png',
+      tags: ['React', 'Node.js', 'Gemini AI', 'Tailwind', 'Express'],
+      category: 'Full-stack',
+      problemSolved: 'Traditional portfolios are static and less engaging. Plus, integrating AI on the frontend exposes API keys to potential theft.',
+      results: 'A secure professional application with a Server-Side Proxy architecture, a fluid interface, and native Dark Mode.',
+      links: { demo: 'https://kira-ai-chatbot-341927641692.europe-west3.run.app/', github: 'https://github.com/christiansaccani/kira-aiassistant', caseStudy: '#' }
+    },
   ],
   it: [
     {
@@ -47,6 +58,17 @@ export const TRANSLATED_PROJECTS: Record<'en' | 'it', Project[]> = {
       problemSolved: 'Gli utenti perdono traccia degli abbonamenti attivi, portando a rinnovi indesiderati e mancanza di visibilità sui costi ricorrenti.',
       results: 'Dashboard unificata con analisi IA delle spese, suggerimenti di alternative e una UX sicura e curata.',
       links: { demo: 'https://subsensedemo.netlify.app/', github: 'https://github.com/christiansaccani/subsense', caseStudy: '#' }
+    },
+    {
+      id: '3',
+      title: 'Kira Assistant',
+      description: 'Un\'assistente virtuale intelligente e minimale progettata come interfaccia interattiva al portfolio. Guida l\'utente attraverso competenze tech, progetti e contatti in modo naturale e professionale.',
+      image: '/images/kira.png',
+      tags: ['React', 'Node.js', 'Gemini AI', 'Tailwind', 'Express'],
+      category: 'Full-stack',
+      problemSolved: 'I portfolio tradizionali sono statici e poco coinvolgenti. Inoltre, l\'integrazione di AI nel frontend espone le chiavi API a potenziali furti.',
+      results: 'Un\'applicazione professionale e sicura con architettura Server-Side Proxy, interfaccia fluida e Dark Mode nativa.',
+      links: { demo: 'https://kira-ai-chatbot-341927641692.europe-west3.run.app/', github: 'https://github.com/christiansaccani/kira-aiassistant', caseStudy: '#' }
     },
   ]
 };
@@ -86,12 +108,12 @@ export const TRANSLATED_EXPERIENCES: Record<'en' | 'it', Experience[]> = {
 export const TESTIMONIALS: Testimonial[] = [];
 
 export const TECH_SKILLS: TechSkill[] = [
+  { name: 'React', level: 90, icon: 'Atom', description: 'Building complex reactive UIs with Hooks and Context.' },
   { name: 'Python', level: 90, icon: 'Terminal', description: 'Data analysis, automation scripting, and backend development.' },
   { name: 'Java', level: 85, icon: 'Coffee', description: 'Enterprise-level applications and object-oriented programming.' },
-  { name: 'React', level: 90, icon: 'Atom', description: 'Building complex reactive UIs with Hooks and Context.' },
+  { name: 'JavaScript', level: 95, icon: 'Braces', description: 'Expert in ES6+, ASYNC/AWAIT, and DOM manipulation.' },
   { name: 'Next.js', level: 85, icon: 'Navigation', description: 'SSR/SSG expert for SEO-driven architectures.' },
   { name: 'Vue.js', level: 80, icon: 'Hexagon', description: 'Efficient component-based development with Vue 3.' },
-  { name: 'JavaScript', level: 95, icon: 'Braces', description: 'Expert in ES6+, ASYNC/AWAIT, and DOM manipulation.' },
   { name: 'MySQL', level: 88, icon: 'Database', description: 'Optimized schema design and complex query profiling.' },
   { name: 'HTML5/CSS3', level: 98, icon: 'FileCode', description: 'Semantic structures and advanced Tailwind/SASS styling.' }
 ];

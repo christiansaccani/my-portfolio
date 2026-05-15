@@ -3,10 +3,11 @@ import { Section, Card } from '../ui/Layout';
 import { Icon } from '../ui/Icon';
 import { TRANSLATED_PROJECTS, TECH_SKILLS, SOCIAL_LINKS } from '@/src/constants';
 import { Button } from '../ui/Layout';
-import { ArrowUpRight, Github, ExternalLink, Filter } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowUpRight, Github, ExternalLink, Filter, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { cn } from '@/src/lib/utils';
 import { useLanguage } from '@/src/lib/LanguageContext';
+import { AnimatePresence } from 'motion/react';
 
 export function About() {
   const { t, language } = useLanguage();
@@ -122,6 +123,18 @@ export function TechStack() {
 export function Projects() {
   const { language, t } = useLanguage();
   const [filter, setFilter] = useState('All');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
   
   const categories = [
     { id: 'All', label: t('projects.all') },
@@ -161,7 +174,11 @@ export function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
-          <Card key={project.id} className="group flex flex-col hover:bg-slate-800/50">
+          <Card 
+            key={project.id} 
+            className="group flex flex-col hover:bg-slate-800/50 cursor-pointer"
+            onClick={() => setSelectedImage(project.image)}
+          >
             <div className="relative aspect-[4/3] overflow-hidden">
               <img 
                 src={project.image} 
@@ -201,12 +218,24 @@ export function Projects() {
               </div>
 
               <div className="flex items-center gap-3">               
-                <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex-1">
+                <a 
+                  href={project.links.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <Button size="sm" variant="outline" className="w-full text-[9px]">
                     {t('projects.viewDemo')} <ExternalLink size={10} />
                   </Button>
                 </a>
-                <a href={project.links.github === '#' ? SOCIAL_LINKS.github : project.links.github} target="_blank" rel="noopener noreferrer" className="flex-1">
+                <a 
+                  href={project.links.github === '#' ? SOCIAL_LINKS.github : project.links.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <Button size="sm" variant="outline" className="w-full text-[9px]">
                     {t('projects.viewRepo')} <Github size={10} />
                   </Button>
@@ -216,6 +245,39 @@ export function Projects() {
           </Card>
         ))}
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 backdrop-blur-xl p-4 lg:p-10 cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-7xl max-h-full w-full h-fit flex items-center justify-center p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="fixed bottom-8 right-8 lg:absolute lg:top-0 lg:right-0 lg:-top-12 lg:-right-12 p-3 bg-white/20 lg:bg-white/10 hover:bg-white text-white hover:text-black rounded-full transition-all duration-300 z-[101] shadow-2xl backdrop-blur-md border border-white/10"
+              >
+                <X size={18} className="lg:w-6 lg:h-6" />
+              </button>
+              <img
+                src={selectedImage}
+                alt="Selected project"
+                className="w-full h-auto max-h-[95vh] lg:max-h-[85vh] object-contain rounded-xl shadow-2xl border border-slate-800 rotate-90 lg:rotate-0 scale-[1.4] md:scale-[1.1] lg:scale-100"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {filteredProjects.length === 0 && (
          <div className="py-20 text-center text-neutral-600">
